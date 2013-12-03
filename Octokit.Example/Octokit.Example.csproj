@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CarlosAg.ExcelXmlWriter">
+      <HintPath>..\References\CarlosAg.ExcelXmlWriter.dll</HintPath>
+    </Reference>
     <Reference Include="Octokit">
       <HintPath>..\packages\Octokit.0.1.5\lib\net45\Octokit.dll</HintPath>
     </Reference>
