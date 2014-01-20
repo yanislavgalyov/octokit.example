@@ -43,6 +43,7 @@ namespace Octokit.Example
                 ExportToExcel(result);
             }
 
+            Console.WriteLine("\nWork is done, press any key to close it...");
             Console.Read();
         }
 
@@ -97,12 +98,15 @@ namespace Octokit.Example
             IssuesH result = new IssuesH();
             try
             {
-                string login, pass;
+                string login, pass, prj;
                 Console.Write("login:");
                 login = Console.ReadLine();
 
                 Console.Write("pass:");
                 pass = Console.ReadLine();
+
+                Console.Write("project:");
+                prj = Console.ReadLine();
 
                 GitHubClient github = new GitHubClient(new ProductHeaderValue("GetMilestoneReport"))
                 {
@@ -119,8 +123,8 @@ namespace Octokit.Example
                 cir.State = ItemState.Closed;
                 cir.Milestone = milestone;
 
-                IReadOnlyList<Issue> openIssues = await github.Issue.GetForRepository("angelyordanov", "ems", oir);
-                IReadOnlyList<Issue> closedIssues = await github.Issue.GetForRepository("angelyordanov", "ems", cir);
+                IReadOnlyList<Issue> openIssues = await github.Issue.GetForRepository("angelyordanov", prj, oir);
+                IReadOnlyList<Issue> closedIssues = await github.Issue.GetForRepository("angelyordanov", prj, cir);
 
                 if (openIssues.Count == 0)
                 {
