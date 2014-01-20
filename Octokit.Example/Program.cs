@@ -29,7 +29,10 @@ namespace Octokit.Example
             //октомври - 1
             //ноември - 2
             //декември - 3
-            var task = GetIssuesForMilestone("2");
+
+            //януари - 4?? squash test
+
+            var task = GetIssuesForMilestone("3");
             task.Wait();
 
             IssuesH result = task.Result;
